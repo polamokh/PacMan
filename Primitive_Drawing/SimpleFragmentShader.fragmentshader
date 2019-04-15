@@ -1,0 +1,22 @@
+#version 330 core
+
+// Ouput data
+out vec3 color;
+
+// Input data
+in vec3 theColor;
+in vec2 outVertexTexture;
+
+uniform sampler2D TextureSampler;
+uniform int RenderingMode;
+
+void main()
+{
+
+	// we set the color of each fragment to red.
+	//color = vec3(1,0,0);
+	if(RenderingMode == 0)
+		color = theColor;
+	else
+		color = texture(TextureSampler, outVertexTexture).rgb;
+}
